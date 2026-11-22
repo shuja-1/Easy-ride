@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: easyride
+    runtime: node
+    plan: free
+    buildCommand: npm --prefix frontend ci && npm --prefix frontend run build && npm --prefix backend ci
+    startCommand: npm --prefix backend start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: MONGO_URI
+        sync: false
+      - key: ADMIN_NAME
+        value: Shuja Husain
+      - key: ADMIN_EMAIL
+        value: admin@easyride.com
+      - key: ADMIN_PASSWORD
+        value: Admin@123
+      - key: DEMO_PASSWORD
+        value: Demo@123
+      - key: PLATFORM_FEE_PERCENT
+        value: "5"
+      - key: UPI_ID
+        value: easyride@okaxis
+      - key: UPI_NAME
+        value: EasyRide Car Rentals
+      - key: RAZORPAY_KEY_ID
+        value: ""
+      - key: RAZORPAY_KEY_SECRET
+        value: ""
