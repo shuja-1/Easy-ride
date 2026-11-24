@@ -132,30 +132,32 @@ export default function Login() {
             </button>
           </form>
 
-          <div className="demo-box">
-            <div className="demo-head">
-              <span>Demo accounts</span>
-              <small>Click to autofill</small>
+          {import.meta.env.DEV && (
+            <div className="demo-box">
+              <div className="demo-head">
+                <span>Demo accounts</span>
+                <small>Click to autofill</small>
+              </div>
+              <div className="demo-grid">
+                {demoAccounts.map((account) => (
+                  <button
+                    key={account.role}
+                    type="button"
+                    className="demo-account"
+                    onClick={() =>
+                      setForm({ email: account.email, password: account.password })
+                    }
+                  >
+                    <span className="demo-icon"><Icon name={account.icon} size={15} /></span>
+                    <span>
+                      <strong>{account.role}</strong>
+                      <small>{account.email}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="demo-grid">
-              {demoAccounts.map((account) => (
-                <button
-                  key={account.role}
-                  type="button"
-                  className="demo-account"
-                  onClick={() =>
-                    setForm({ email: account.email, password: account.password })
-                  }
-                >
-                  <span className="demo-icon"><Icon name={account.icon} size={15} /></span>
-                  <span>
-                    <strong>{account.role}</strong>
-                    <small>{account.email}</small>
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
+          )}
         </div>
       </main>
     </div>

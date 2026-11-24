@@ -1,4 +1,10 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Local dev only: some home/ISP resolvers refuse SRV queries for mongodb+srv URIs.
+if (process.env.DNS_SERVERS) {
+  dns.setServers(process.env.DNS_SERVERS.split(','));
+}
 
 export const connectDB = async () => {
   try {
