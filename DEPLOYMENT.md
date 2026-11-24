@@ -47,17 +47,20 @@ git push -u origin main
 
 The database starts empty. Seed it **once** from the Render dashboard:
 
-1. Open your Render service → **Shell** tab.
+Free instances do not include the Render **Shell**. Seed from your laptop against the same Atlas database instead:
+
+1. Put the Render `MONGO_URI` value into `backend/.env`.
 2. Run:
    ```bash
-   npm --prefix backend run seed
+   cd backend
+   npm run seed
    ```
 
 This creates the admin, two providers, one customer, and 11 cars (it is safe to run again — it never duplicates). Then open the site and log in:
 
 | Role | Email | Password |
 | --- | --- | --- |
-| Admin | `admin@easyride.com` | `Admin@123` |
+| Admin | private — set by the owner | — |
 | Provider | `priya@easyride.com` | `Demo@123` |
 | Customer | `customer@easyride.com` | `Demo@123` |
 

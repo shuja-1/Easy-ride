@@ -117,12 +117,12 @@ npm run preview  # http://localhost:4173
 
 | Role | Email | Password |
 | --- | --- | --- |
-| Administrator | `admin@easyride.com` | `Admin@123` |
+| Administrator | private — held by the project owner | — |
 | Car Provider (Arjun) | `provider@easyride.com` | `Demo@123` |
 | Car Provider (Priya) | `priya@easyride.com` | `Demo@123` |
 | Customer | `customer@easyride.com` | `Demo@123` |
 
-The login page has one-click autofill for the three primary accounts. The seeded fleet belongs to Arjun and Priya — use Priya's account when approving a booking on the Swift Dzire or Creta.
+The admin account is created from `ADMIN_EMAIL` / `ADMIN_PASSWORD` and its credentials are not published. The one-click autofill box appears only under `npm run dev`; production builds hide it. The seeded fleet belongs to Arjun and Priya — use Priya's account when approving a booking on the Swift Dzire or Creta.
 
 ## Payments
 
